@@ -13,26 +13,12 @@
             <a href="https://www.instagram.com/forest_finds_919/" target="_blank" class="absolute bottom-2 right-2 text-white text-2xl">
                 <i class="fab fa-instagram"></i>
             </a>
+            <div class="absolute bottom-2 left-2 text-white text-sm">
+                <i class="fas fa-map-marker-alt"></i> Shop 105, 24-26 East Point Road, Causeway Bay 東角
+            </div>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image1.jpg" alt="Image 1" class="absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image2.jpg" alt="Image 2" class="absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image3.jpg" alt="Image 3" class="absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image4.jpg" alt="Image 4" class="absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image5.jpg" alt="Image 5" class="absolute inset-0 w-full h-full object-cover">
-            </div>
-            <div class="relative w-full pt-[100%]">
-                <img src="gallery/image6.jpg" alt="Image 6" class="absolute inset-0 w-full h-full object-cover">
-            </div>
+        <div id="image-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+            <!-- Images will be inserted here by JavaScript -->
         </div>
         <div class="bg-white p-6 rounded-lg shadow-lg">
             <h2 class="text-2xl font-bold text-gray-800 mb-4">檔主計劃</h2>
@@ -53,10 +39,39 @@
                     <p class="text-gray-600">月結抽成40%</p>
                 </div>
             </div>
-
             <p class="text-sm text-gray-500 mt-4">*每介紹一位成功簽租的檔主, 可獲回贈HK$300</p>
         </div>
-        
     </div>
+    <script>
+        const allImages = [
+            'gallery/image1.jpg',
+            'gallery/image2.jpg',
+            'gallery/image3.jpg',
+            'gallery/image4.jpg',
+            'gallery/image5.jpg',
+            'gallery/image6.jpg',
+            'gallery/image7.jpg',
+            'gallery/image8.jpg',
+            'gallery/image9.jpg',
+            'gallery/image10.jpg'
+        ];
+
+        function getRandomImages(images, count) {
+            const shuffled = images.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        function displayRandomImages() {
+            const imageGrid = document.getElementById('image-grid');
+            const selectedImages = getRandomImages(allImages, 6);
+            imageGrid.innerHTML = selectedImages.map(src => `
+                <div class="relative w-full pt-[100%]">
+                    <img src="${src}" alt="Random Image" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+            `).join('');
+        }
+
+        displayRandomImages();
+    </script>
 </body>
 </html>
