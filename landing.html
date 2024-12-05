@@ -83,47 +83,6 @@
             <img src="images/location.jpg" alt="Location : Shop 105, 24-26 East Point Road, Causeway Bay" />
         </div>
     </div>
-    <script>
-        const allImages = [
-            'gallery/image1.jpg',
-            'gallery/image2.jpg',
-            'gallery/image3.jpg',
-            'gallery/image4.jpg',
-            'gallery/image5.jpg',
-            'gallery/image6.jpg',
-            'gallery/image7.jpg',
-            'gallery/image8.jpg',
-            'gallery/image9.jpg',
-            'gallery/image10.jpg',
-            'gallery/image11.jpg',
-            'gallery/image12.jpg',
-            'gallery/image13.jpg',
-            'gallery/image14.jpg',
-            'gallery/image15.jpg',
-            'gallery/image16.jpg',
-            'gallery/image17.jpg',
-            'gallery/image18.jpg',
-            'gallery/image19.jpg',
-            'gallery/image20.jpg'
-        ];
-
-        function getRandomImages(images, count) {
-            const shuffled = images.sort(() => 0.5 - Math.random());
-            return shuffled.slice(0, count);
-        }
-
-        function displayRandomImages() {
-            const imageGrid = document.getElementById('image-grid');
-            const selectedImages = getRandomImages(allImages, 6);
-            imageGrid.innerHTML = selectedImages.map(src => `
-                <div class="relative w-full pt-[100%]">
-                    <img src="${src}" alt="Forest Finds 松隅" class="absolute inset-0 w-full h-full object-cover">
-                </div>
-            `).join('');
-        }
-
-        displayRandomImages();
-    </script>
 
 </body>
 
